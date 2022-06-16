@@ -10,10 +10,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_01_085028) do
+ActiveRecord::Schema.define(version: 2022_06_01_130714) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "lists", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "title"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_lists_on_user_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "list_id", null: false
+    t.string "title"
+    t.string "name"
+    t.string "category"
+    t.string "germany"
+    t.integer "quantity"
+    t.integer "weight"
+    t.float "price"
+    t.datetime "buy"
+    t.datetime "expiry"
+    t.integer "keep"
+    t.datetime "end"
+    t.string "shop"
+    t.boolean "sale"
+    t.boolean "bought"
+    t.float "total"
+    t.integer "rate"
+    t.boolean "out"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["list_id"], name: "index_products_on_list_id"
+    t.index ["user_id"], name: "index_products_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "provider", default: "email", null: false
@@ -40,4 +74,7 @@ ActiveRecord::Schema.define(version: 2022_06_01_085028) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "lists", "users"
+  add_foreign_key "products", "lists"
+  add_foreign_key "products", "users"
 end

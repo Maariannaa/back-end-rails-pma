@@ -1,0 +1,43 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  list: one
+  title: MyString
+  name: MyString
+  category: MyString
+  germany: MyString
+  quantity: 1
+  weight: 1
+  price: 1.5
+  buy: 2022-06-01 15:07:14
+  expiry: 2022-06-01 15:07:14
+  keep: 1
+  end: 2022-06-01 15:07:14
+  shop: MyString
+  sale: false
+  bought: false
+  total: 1.5
+  rate: 1
+  out: false
+
+two:
+  user: two
+  list: two
+  title: MyString
+  name: MyString
+  category: MyString
+  germany: MyString
+  quantity: 1
+  weight: 1
+  price: 1.5
+  buy: 2022-06-01 15:07:14
+  expiry: 2022-06-01 15:07:14
+  keep: 1
+  end: 2022-06-01 15:07:14
+  shop: MyString
+  sale: false
+  bought: false
+  total: 1.5
+  rate: 1
+  out: false
