@@ -8,7 +8,7 @@ class Api::V1::ListsController < ApplicationController
   end
 
   def show
-    render json: @list
+    render json: @list, :include => [:products]
   end
 
   def create
